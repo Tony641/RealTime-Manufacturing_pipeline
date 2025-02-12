@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: yourpassword
+      POSTGRES_DB: manufacturing
+    ports:
+      - "5432:5432"
+
+  kafka:
+    image: wurstmeister/kafka
+    ports:
+      - "9092:9092"
+
+  spark:
+    image: bitnami/spark
+    environment:
+      - SPARK_MODE=master
+
+  airflow-webserver:
+    image: puckel/docker-airflow
+    restart: always
+    depends_on:
+      - postgres
+    environment:
+      - EXECUTOR=LocalExecutor
+    ports:
+      - "8080:8080"
+
+  fastapi-anomalies:
+    build: ../model_serving
+    ports:
+      - "8001:8001"
