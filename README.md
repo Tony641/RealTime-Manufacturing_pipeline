@@ -1,9 +1,5 @@
  
----
 
-### **📄 `README.md`**  
-📄 `manufacturing_pipeline/README.md`  
-```md
 # 🚀 Manufacturing Quality Control & Predictive Maintenance System
 
 ## 📌 Overview
@@ -12,7 +8,7 @@ It **collects sensor & camera data, detects anomalies, predicts machine failures
 using **Apache Kafka, Apache Spark, FastAPI, and PostgreSQL**.
 
 ## 📂 Folder Structure
-```
+ 
 manufacturing_pipeline/
 │── spark_processing/
 │   ├── anomaly_detection.py           # Detects anomalies & sends alerts via Kafka
@@ -28,7 +24,7 @@ manufacturing_pipeline/
 │   ├── docker-compose.yml             # Deploys Kafka, Spark, PostgreSQL, Airflow, FastAPI
 │── requirements.txt
 │── README.md
-```
+ 
 
 ## 📌 Features
 ✅ **Real-time anomaly detection for temperature, vibration, pressure, & defects**  
@@ -39,47 +35,39 @@ manufacturing_pipeline/
 ✅ **Airflow DAGs for automation**  
 ✅ **Email alerts for detected anomalies**  
 
----
+ 
 
 ## 🚀 How to Run
 
 ### **1️⃣ Start the Entire System**
-```bash
+ 
 docker-compose -f manufacturing_pipeline/deployment/docker-compose.yml up -d
-```
+ 
 
 ### **2️⃣ Train the Machine Learning Model**
-```bash
+ 
 python manufacturing_pipeline/spark_processing/predictive_maintenance.py
-```
+ 
 
 ### **3️⃣ Start Real-Time Anomaly Detection**
-```bash
+ 
 python manufacturing_pipeline/spark_processing/anomaly_detection.py
-```
+ 
 
 ### **4️⃣ Start the FastAPI Prediction Service**
-```bash
+ 
 python manufacturing_pipeline/model_serving/serve_predictions.py
-```
+ 
 
 ---
 
 ## 📌 Example API Request (Predict Machine Failure)
-```bash
+ 
 curl -X POST "http://localhost:8002/predict_failure/" \
      -H "Content-Type: application/json" \
      -d '{"temperature": 95.0, "vibration": 5.0, "pressure": 45.0}'
-```
-
-## 📌 Example API Response
-```json
-{
-    "machine_failure_prediction": true
-}
-```
-
----
+ 
+ 
 
 ## 📌 Technologies Used
 - **Apache Spark** for anomaly detection & predictive modeling  
@@ -105,7 +93,7 @@ Feel free to **fork**, **open issues**, or **submit pull requests** to improve t
 
 ## 📜 License
 This project is open-source under the **MIT License**.
-```
+ 
 
 ---
 
@@ -114,5 +102,4 @@ This project is open-source under the **MIT License**.
 ✅ **Predictive maintenance using machine learning**  
 ✅ **FastAPI for real-time failure prediction**  
 ✅ **Kafka + PostgreSQL for scalable data processing**  
-
-🚀 **Now a fully automated, real-time quality control & maintenance system!** 🚀
+ 
